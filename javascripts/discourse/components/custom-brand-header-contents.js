@@ -10,8 +10,8 @@ export default class CustomBrandHeaderContents extends Component {
             .then(response => response.json())
             .then(json => {
                 console.log('json', json);
-                // const decodedHTML = Buffer.from(header.html, 'base64').toString('utf-8');
-                const decodedHTML = atob(header.html);
+                // const decodedHTML = Buffer.from(json.html, 'base64').toString('utf-8');
+                const decodedHTML = atob(json.html);
                 console.log('html data', decodedHTML);
                 return json;
             });
