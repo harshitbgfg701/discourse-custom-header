@@ -13,7 +13,7 @@ export default class CustomBrandHeaderContents extends Component {
                 // const decodedHTML = Buffer.from(json.html, 'base64').toString('utf-8');
                 const decodedHTML = atob(json.html);
                 console.log('html data', decodedHTML);
-                return json;
+                return { ...json, decodedHTML };
             });
     }
 }
