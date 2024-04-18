@@ -2,9 +2,9 @@ import Component from "@glimmer/component";
 import { service } from "@ember/service";
 import not from "truth-helpers/helpers/not";
 import or from "truth-helpers/helpers/or";
-import BrandHeaderContents from "./brand-header-contents";
+import CustomBrandHeaderContents from "./custom-brand-header-contents";
 
-export default class BrandHeaderContainer extends Component {
+export default class CustomBrandHeaderContainer extends Component {
   @service site;
 
   <template>
@@ -12,7 +12,7 @@ export default class BrandHeaderContainer extends Component {
       <header class="b-header">
         <div class="wrap">
           <div class="contents">
-            <BrandHeaderContents />
+            <CustomBrandHeaderContents />
           </div>
         </div>
       </header>

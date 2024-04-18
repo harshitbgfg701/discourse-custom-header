@@ -1,6 +1,6 @@
 import { hbs } from "ember-cli-htmlbars";
 import { withPluginApi } from "discourse/lib/plugin-api";
-import BrandHeaderContainer from "../components/custom-brand-header-container";
+import CustomBrandHeaderContainer from "../components/custom-brand-header-container";
 import { registerWidgetShim } from "discourse/widgets/render-glimmer";
 
 export default {
@@ -14,7 +14,7 @@ export default {
     );
 
     withPluginApi("1.14.0", (api) => {
-      api.renderInOutlet(settings.plugin_outlet, BrandHeaderContainer);
+      api.renderInOutlet(settings.plugin_outlet, CustomBrandHeaderContainer);
     });
   },
 };

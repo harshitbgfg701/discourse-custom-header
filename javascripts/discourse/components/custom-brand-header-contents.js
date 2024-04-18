@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
 
-export default class BrandHeaderContents extends Component {
+export default class CustomBrandHeaderContents extends Component {
     @service site;
 
     get headerHTML() {
