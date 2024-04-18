@@ -1,27 +1,19 @@
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
+const Buffer = require('buffer').Buffer;
 
 export default class CustomBrandHeaderContents extends Component {
     @service site;
 
     get headerHTML() {
 
-        const header = fetch('https://static.bgfg.co.uk/components/videogamer/header/index')
+        return fetch('https://static.bgfg.co.uk/components/videogamer/header/index')
             .then(response => response.json())
             .then(json => {
-                console.log(json);
+                console.log('json', json);
+                const decodedHTML = Buffer.from(header.html, 'base64').toString('utf-8')
+                console.log('html data', decodedHTML);
                 return json;
             });
-
-        console.log('header data', header);
-
-        console.log('html data', header.html);
-
-        const decodedHTML = Buffer.from(header.html, 'base64')
-        var htmlString = decodedHTML.toString();
-
-        console.log('html data', htmlString);
-
-        return header;
     }
 }
