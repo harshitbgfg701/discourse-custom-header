@@ -1,0 +1,15 @@
+<div class="title">
+    <p>Header Content from custom header</p>
+</div>
+
+{{#if this.headerHTML}}
+  <nav class="links">
+    <ul class="nav nav-pills">
+      {{#each this.headerHTML as |tl|}}
+        <li>
+          {{tl.title}}
+        </li>
+      {{/each}}
+    </ul>
+  </nav>
+{{/if}}

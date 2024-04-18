@@ -1,11 +1,20 @@
-import { apiInitializer } from "discourse/lib/api";
+import { hbs } from "ember-cli-htmlbars";
+import { withPluginApi } from "discourse/lib/plugin-api";
+import BrandHeaderContainer from "../components/custom-brand-header-container";
+import { registerWidgetShim } from "discourse/widgets/render-glimmer";
 
-export default apiInitializer("1.8.0", async (api) => {
-  console.log("hello world from api initializer!", api);
+export default {
+  name: "custom-brand-header",
 
-  const resp = await fetch('https://jsonplaceholder.typicode.com/todos');
+  initialize() {
+    registerWidgetShim(
+      "custom-brand-header-contents",
+      "div.custom-brand-header-contents",
+      hbs`<CustomBrandHeaderContents />`
+    );
 
-  const data = await resp.json();
-
-  console.log('data coming from jsonplace holder todo api', data);
-});
+    withPluginApi("1.14.0", (api) => {
+      api.renderInOutlet(settings.plugin_outlet, BrandHeaderContainer);
+    });
+  },
+};

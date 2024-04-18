@@ -1,4 +1,32 @@
-example_setting:
-  default: true
-  description:
-    en: A description of a setting.
+brand_name:
+  default: ""
+website_url:
+  default: ""
+logo_url:
+  default: ""
+mobile_logo_url:
+  default: ""
+links:
+  type: list
+  list_type: simple
+  default: ""
+  description: "Format: name,url,target (optional)"
+icons:
+  type: list
+  list_type: simple
+  default: ""
+  description: "Format: icon-name,url,target (optional)"
+custom_font_awesome_icons:
+  type: list
+  list_type: simple
+  default: ""
+  description: "List of FontAwesome 5 icons used in this theme component"
+show_bar_on_mobile:
+  type: bool
+  default: false
+plugin_outlet:
+  default: "above-site-header"
+  type: enum
+  choices:
+    - "above-site-header"
+    - "below-site-header"
