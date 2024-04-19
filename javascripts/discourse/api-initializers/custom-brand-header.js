@@ -15,6 +15,24 @@ export default {
 
     withPluginApi("1.14.0", (api) => {
       api.renderInOutlet(settings.plugin_outlet, CustomBrandHeaderContainer);
+
+      const currentUser = api.getCurrentUser();
+
+      console.log('currentUser', currentUser);
+
+      if (currentUser) {
+        const userId = currentUser.id;
+        const endpoint = `/admin/users/${userId}.json`;
+
+        ajax(endpoint, { dataType: 'json' }).then(response => {
+          console.log('response', response);
+          console.log('Logged-in user email:', response.email);
+          // Perform further actions with the email address
+        }).catch(error => {
+          console.error('Error fetching user data:', error);
+        });
+      }
+
     });
   },
 };
