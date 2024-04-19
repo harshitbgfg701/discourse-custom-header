@@ -2,6 +2,7 @@ import { hbs } from "ember-cli-htmlbars";
 import { withPluginApi } from "discourse/lib/plugin-api";
 import CustomBrandHeaderContainer from "../components/custom-brand-header-container";
 import { registerWidgetShim } from "discourse/widgets/render-glimmer";
+import { ajax } from "discourse/lib/ajax";
 
 export default {
   name: "custom-brand-header",
